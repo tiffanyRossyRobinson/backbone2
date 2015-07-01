@@ -1,8 +1,7 @@
-var $= require('jquery');
-var MoviesCollection= require('./collections');
-var MovieCollectionView= require('./collectionView');
-
-
+var Backbone = require('backbone');
+var $ = require('jquery');
+Backbone.$ = $;
+var Router = require('./router');
 
 module.exports = $(document).ready(function(){
   page.init();
@@ -16,10 +15,8 @@ var page = {
     },
 
     initStyling: function(arguments){
-      var moviesCollection = new MoviesCollection();
-      moviesCollection.fetch().then(function(){
-      var moviesView = new MovieCollectionView({collection: moviesCollection});
-      });
+      new Router();
+      Backbone.history.start();
     },
 
     initEvents: function(arguments){

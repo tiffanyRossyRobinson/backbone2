@@ -5,13 +5,14 @@
   <title>Awesome Movies</title>
   <link rel="stylesheet" href="main.css">
   <script type="text/template" id="movieTmpl">
-      <img src='<%= CoverImage %>'/>
+      <img src='<%= CoverImage %>' width="130"/>
       <div class="details">
         <div class="movieDetails">
             <h3><%= title %></h3>
             <h4 class="release">Released: (<%= releaseYear %>)</h4>
             <h5 class="rating">Rated: <%= rating %> / 10</h5>
             <p class = "plot"><%= plot %></p>
+            <button type="button" class= "detailButton">Details</button>
             <button type="button" class="link">Delete</button>
             <button type="button" class="edit">Edit</button>
         </div>
@@ -40,6 +41,18 @@
         </form>
       </div>
   </script>
+  <script type="text/template" id="buttonTmpl">
+      <ul>
+          <li><button type="button" class= "addMovie">Add A Movie</button> </li>
+          <li><button type="button" id= "titleMovie">Sort By Title</button> </li>
+          <li><button type="button" id= "ratingMovie">Sort By Rating</button> </li>
+          <li><button type="button" id= "releaseYearMovie">Sort By Year</button> </li>
+          <li><p>Fantasy is a necessary ingredient in living, it's a way of looking at life through the wrong end of a telescope, and that enables you to laugh at life's realities.
+          <br>-Dr. Seuss</p></li>
+      </ul>
+
+      <img src="http://vapersbook.com/wp-content/uploads/2013/05/popcorn-eliquid-recipe.jpg"/>
+  </script>
 </head>
 <body>
 
@@ -47,16 +60,8 @@
     <h1> Awesome List of Movies! </h1>
   </header>
 
-  <aside>
-    <ul>
-      <li><button type="button" class= "addMovie">Add A Movie</button> </li>
-      <li><button type="button" id= "titleMovie">Sort By Title</button> </li>
-      <li><button type="button" id= "rateMovie">Sort By Rating</button> </li>
-      <li><p>Fantasy is a necessary ingredient in living, it's a way of looking at life through the wrong end of a telescope, and that enables you to laugh at life's realities.
-      <br>-Dr. Seuss</p></li>
-    </ul>
+  <aside class="buttons">
 
-    <img src="http://quezi.com/wp-content/uploads/2009/04/cinema-seats.jpg"/>
   </aside>
 
   <div id="listOfMovies">

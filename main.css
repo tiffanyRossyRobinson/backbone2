@@ -1,5 +1,8 @@
 body{
   height: 100vw;
+  background: url("http://photos.cinematreasures.org/production/photos/20009/1312400630/large.jpg?1312400630") center center no-repeat fixed;
+  background-size: cover;
+
 }
 
 #overlay{
@@ -11,7 +14,7 @@ body{
   left:0;
   text-align:center;
 }
-form{
+.newMovie{
   width: 40%;
   margin-left: 30%;
   margin-top: 5%;
@@ -22,17 +25,17 @@ form{
   padding-top: 2%;
   text-align: left;
 }
-form input{
+.newMovie input{
   display: inline-block;
   margin-bottom: 3%;
 }
 
-form h3{
+.newMovie h3{
   margin-top: 0;
   font-family: "Arnoldboecklin", fantasy;
   font-size: 25px;
 }
-form span{
+.newMovie span{
   font-family: "Arnoldboecklin", fantasy;
   font-size: 20px;
 }
@@ -86,15 +89,19 @@ aside p{
 aside img{
   width: 100%;
   margin-bottom: 0;
-  margin-top: 75%;
+/*   margin-top: 75%; */
 }
-.addMovie, #titleMovie, #rateMovie{
+.addMovie, #titleMovie, #ratingMovie, #releaseYearMovie{
   width: 80%;
   background-color: grey;
   color: #380000;
   height: 30px;
   border-radius: 20px;
-
+}
+.link, .edit{
+  background-color: grey;
+  color: #380000;
+  border-radius: 20px;
 }
 
 #listOfMovies{
@@ -124,6 +131,7 @@ article{
   border: 2px solid black;
   border-radius: 20px;
   padding: 2%;
+  background-color: #780000
 }
 
 h3{

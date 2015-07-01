@@ -10,19 +10,12 @@ module.exports = Backbone.View.extend({
   el: '#listOfMovies',
   events: {
     'click .submit': 'submitMovie',
-    'click .cancel': 'cancelAdd',
-    'click #titleMovie' : 'titleSort',
+    'click .cancel': 'cancelAdd'
   },
 
   initialize: function (options) {
     this.addAll();
     this.listenTo(this.collection, 'change', this.reload);
-    $('.addMovie').on('click', function(event){
-      $('#overlay').removeClass('hide');
-    });
-    $('#titleMovie').on('click', function(event){
-        alert('cant get it to work');
-    })
   },
 
   reload: function(){
@@ -49,7 +42,7 @@ module.exports = Backbone.View.extend({
     var obj = {
       title: $('.ftitle').val() || 'Movie Title',
       releaseYear: $('.fyear').val() || '2080',
-      CoverImage: $('.fimage').val() || "https://discussions.apple.com/___sbsstatic___/migration-images/194/19494496-1.gif",
+      CoverImage: $('.fimage').val() || "http://img4.wikia.nocookie.net/__cb20130307231227/divergent/images/8/84/Dauntless.gif",
       plot: $('.fplot').val() || "This is a movie about the world",
       rating: $('.stars').val() || 5
     };
@@ -57,11 +50,11 @@ module.exports = Backbone.View.extend({
     addMovie.save();
     this.addOne(addMovie);
     $('#overlay').addClass('hide');
+    $('.newMovie').trigger('reset');;
   },
 
-  titleSort: function(){
-    console.log('sort by title');
-   this.collection.comparator = "title";
+  movieSort: function(value){
+   this.collection.comparator = value;
    this.collection.sort();
    $('#listOfMovies').empty();
    this.addAll();

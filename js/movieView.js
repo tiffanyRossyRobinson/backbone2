@@ -11,7 +11,8 @@ module.exports = Backbone.View.extend({
     'click .link': 'deleteButton',
     'click .edit': 'editButton',
     'click .editCancel': 'cancelEdit',
-    'click .editSubmit': 'submitEdit'
+    'click .editSubmit': 'submitEdit',
+    'click .detailButton': 'navDetails'
   },
 
   initialize: function (options) {
@@ -25,6 +26,11 @@ module.exports = Backbone.View.extend({
     return this;
   },
 
+  navDetails: function(event){
+    console.log(this.model.id);
+    window.location = "/#movie/" + this.model.id;
+  },
+
   deleteButton: function (event) {
     event.preventDefault();
     this.remove();
@@ -33,7 +39,6 @@ module.exports = Backbone.View.extend({
 
   editButton: function (event){
     event.preventDefault();
-    alert("This Feature is Currently Under Construction");
     this.$('.movieDetails').addClass('hide');
     this.$('.editMovie').removeClass('hide');
   },
