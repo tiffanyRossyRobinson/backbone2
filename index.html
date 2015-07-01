@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Awesome Movies</title>
+  <link rel="stylesheet" href="main.css">
+  <script type="text/template" id="movieTmpl">
+      <img src='<%= CoverImage %>'/>
+      <div class="details">
+        <div class="movieDetails">
+            <h3><%= title %></h3>
+            <h4 class="release">Released: (<%= releaseYear %>)</h4>
+            <h5 class="rating">Rated: <%= rating %> / 10</h5>
+            <p class = "plot"><%= plot %></p>
+            <button type="button" class="link">Delete</button>
+            <button type="button" class="edit">Edit</button>
+        </div>
+        <div class ="editMovie hide">
+          <form class="editedMovie">
+            <input type="text" class='etitle' value="<%= title %>" placeHolder="Movie Title?"/> <br>
+            <input type="text" class='eyear' value="<%= releaseYear %>" placeHolder="Release Year?"/><br>
+            <input type="text" class='eplot' value="<%= plot %>" placeHolder="Plot?"/><br>
+            <input type="text" class='eimage' value="<%= CoverImage %>" placeHolder="Image Link?"/><br>
+            <input type="text" class='estars' value="<%= rating %>" placeHolder="Rating?"/><br>
+            <button type="submit" class="editSubmit">Submit</button>
+            <button type="button" class="editCancel">Cancel</button>
+          </form>
+        </div>
+      </div>
+      <div id='overlay' class='hide'>
+        <form class="newMovie">
+          <h3>What Movie Are We Adding? </h3>
+          <span>Movie Title:</span> <input type="text" class='ftitle' placeHolder="Movie Title?"/> <br>
+          <span>Release Year:</span> <input type="text" class='fyear'placeHolder="Release Year?"/><br>
+          <span>Plot:</span> <input type="text" class='fplot'placeHolder="Plot?"/><br>
+          <span>Image Link:</span> <input type="text" class='fimage'placeHolder="Image Link?"/><br>
+          <span>Rating:</span> <input type="text" class='stars' placeHolder="Rating?"/><br>
+          <button type="submit" class="submit">Submit</button>
+          <button type="button" class="cancel">Cancel</button>
+        </form>
+      </div>
+  </script>
+</head>
+<body>
+
+  <header class="title">
+    <h1> Awesome List of Movies! </h1>
+  </header>
+
+  <aside>
+    <ul>
+      <li><button type="button" class= "addMovie">Add A Movie</button> </li>
+      <li><button type="button" id= "titleMovie">Sort By Title</button> </li>
+      <li><button type="button" id= "rateMovie">Sort By Rating</button> </li>
+      <li><p>Fantasy is a necessary ingredient in living, it's a way of looking at life through the wrong end of a telescope, and that enables you to laugh at life's realities.
+      <br>-Dr. Seuss</p></li>
+    </ul>
+
+    <img src="http://quezi.com/wp-content/uploads/2009/04/cinema-seats.jpg"/>
+  </aside>
+
+  <div id="listOfMovies">
+
+  </div>
+
+<script type="text/javascript" src="bundled.js"></script>
+</body>
+</html>
