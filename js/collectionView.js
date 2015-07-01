@@ -36,6 +36,9 @@ module.exports = Backbone.View.extend({
 
   cancelAdd: function(event){
     $('#overlay').addClass('hide');
+    $('.moviesHere').removeClass('hide');
+    window.location = "/#home";
+
   },
   submitMovie: function(event){
     event.preventDefault();

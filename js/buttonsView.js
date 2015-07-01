@@ -14,7 +14,8 @@ module.exports = Backbone.View.extend({
     'click #titleMovie': 'movieSort',
     'click #ratingMovie': 'movieSort',
     'click #releaseYearMovie' : 'movieSort',
-    'click .addMovie': 'addMovie'
+    'click .addMovie': 'addMovie',
+    'click .home': 'goHome'
   },
 
   initialize: function (options) {
@@ -26,21 +27,31 @@ module.exports = Backbone.View.extend({
     return this;
   },
 
-  movieSort: function(e){
+  goHome: function(){
     window.location = "/#home";
+    $('#overlay').addClass('hide');
+    $('#listOfMovie').empty();
+
+  },
+  movieSort: function(e){
+    window.location = "/#sort";
+    $('#overlay').addClass('hide');
     e.preventDefault();
     var find= e.currentTarget.id;
     find = find.split('Movie');
     var moviesCollection = new MoviesCollection();
     moviesCollection.fetch().then(function(){
     var newSort = new MovieCollectionView({collection: moviesCollection});
+      $('#listOfMovies').empty();
       newSort.movieSort(find[0]);
     });
 
 
   },
   addMovie: function(){
-    $('#overlay').removeClass('hide');
+    window.location = "/#addMovie" ;
+    $('.moviesHere').addClass('hide');
+
   }
 
 

@@ -14,6 +14,8 @@ module.exports = Backbone.Router.extend({
     "home": "home",
     "teddybear": "cuteAlert",
     "movie/:id": "detailView",
+    "addMovie": "addMovie",
+    "sort": "sorted",
     "*anything": "notFound"
   },
   notFound: function (stuff) {
@@ -30,12 +32,22 @@ module.exports = Backbone.Router.extend({
   home: function () {
     var moviesCollection = new MoviesCollection();
     moviesCollection.fetch().then(function(){
+      $('.moviesHere').removeClass('hide');
+      $('#listOfMovie').empty();
     var moviesView = new MovieCollectionView({collection: moviesCollection});
     });
     var buttonView = new ButtonsView();
     var buttonData = buttonView.render().el;
     $('.buttons').append(buttonData);
-
   },
+  addMovie: function(){
+    $('#overlay').removeClass('hide');
+    $('#listOfMovie').empty();
+    $('.moviesHere').addClass('hide');
+  },
+  sorted: function(){
+    $('.moviesHere').removeClass('hide');
+      $('#listOfMovie').empty();
+  }
 
 });

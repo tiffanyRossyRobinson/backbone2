@@ -5,6 +5,7 @@
   <title>Awesome Movies</title>
   <link rel="stylesheet" href="main.css">
   <script type="text/template" id="movieTmpl">
+    <div class="moviesHere">
       <img src='<%= CoverImage %>' width="130"/>
       <div class="details">
         <div class="movieDetails">
@@ -13,21 +14,22 @@
             <h5 class="rating">Rated: <%= rating %> / 10</h5>
             <p class = "plot"><%= plot %></p>
             <button type="button" class= "detailButton">Details</button>
-            <button type="button" class="link">Delete</button>
             <button type="button" class="edit">Edit</button>
+            <button type="button" class="link">Delete</button>
         </div>
         <div class ="editMovie hide">
           <form class="editedMovie">
-            <input type="text" class='etitle' value="<%= title %>" placeHolder="Movie Title?"/> <br>
+            <input type="text" class='etitle' value="<%= title %>" placeHolder="Movie Title?"/>
             <input type="text" class='eyear' value="<%= releaseYear %>" placeHolder="Release Year?"/><br>
-            <input type="text" class='eplot' value="<%= plot %>" placeHolder="Plot?"/><br>
-            <input type="text" class='eimage' value="<%= CoverImage %>" placeHolder="Image Link?"/><br>
+            <input type="text" class='eimage' value="<%= CoverImage %>" placeHolder="Image Link?"/>
             <input type="text" class='estars' value="<%= rating %>" placeHolder="Rating?"/><br>
+            <textarea class='eplot' cols="60" rows="5"  placeHolder="Plot?"><%= plot %></textarea><br>
             <button type="submit" class="editSubmit">Submit</button>
             <button type="button" class="editCancel">Cancel</button>
           </form>
         </div>
       </div>
+    </div>
       <div id='overlay' class='hide'>
         <form class="newMovie">
           <h3>What Movie Are We Adding? </h3>
@@ -43,6 +45,8 @@
   </script>
   <script type="text/template" id="buttonTmpl">
       <ul>
+        <li><button type="button" class= "home">Home</button> </li>
+        <li><button type="button" id= "about">About</button> </li>
           <li><button type="button" class= "addMovie">Add A Movie</button> </li>
           <li><button type="button" id= "titleMovie">Sort By Title</button> </li>
           <li><button type="button" id= "ratingMovie">Sort By Rating</button> </li>

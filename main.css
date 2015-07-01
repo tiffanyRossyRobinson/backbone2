@@ -1,23 +1,16 @@
 body{
   height: 100vw;
-  background: url("http://photos.cinematreasures.org/production/photos/20009/1312400630/large.jpg?1312400630") center center no-repeat fixed;
+  background: url("http://fc08.deviantart.net/fs18/f/2007/187/5/e/Buttered_Popcorn_Texture_by_FantasyStock.jpg") center center no-repeat fixed;
   background-size: cover;
 
 }
 
 #overlay{
-  background:rgba(213, 213, 213, 0.7);
-  position:absolute;
-  height:100vw;
   width:100%;
-  top:0;
-  left:0;
   text-align:center;
 }
 .newMovie{
-  width: 40%;
-  margin-left: 30%;
-  margin-top: 5%;
+  width: 100%;
   border: 2px dotted red;
   height: 18%;
   background-color: #780000;
@@ -42,7 +35,7 @@ body{
 .title {
   top: 0;
   bottom: 0;
-  width: 79%;
+  width: 100%;
   float:right;
   margin: 0;
 }
@@ -66,7 +59,8 @@ aside{
   background-color: #780000  ;
   height: 100%;
   border-radius: 20px;
-
+  background: url("http://ak.picdn.net/shutterstock/videos/1008724/preview/stock-footage-opening-and-closing-red-curtain.jpg") center center no-repeat fixed;
+  background-size: cover;
 }
 
 aside ul{
@@ -91,14 +85,14 @@ aside img{
   margin-bottom: 0;
 /*   margin-top: 75%; */
 }
-.addMovie, #titleMovie, #ratingMovie, #releaseYearMovie{
+.addMovie, #titleMovie, #ratingMovie, #releaseYearMovie, .home, #about{
   width: 80%;
   background-color: grey;
   color: #380000;
   height: 30px;
   border-radius: 20px;
 }
-.link, .edit{
+.link, .edit, .detailButton{
   background-color: grey;
   color: #380000;
   border-radius: 20px;
@@ -140,6 +134,9 @@ h3{
 }
 .release, .rating{
   margin: 0;
+}
+.editedMovie{
+  width: 80%;
 }
 
 .hide{
