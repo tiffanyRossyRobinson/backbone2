@@ -15,11 +15,10 @@ module.exports = Backbone.View.extend({
 
   initialize: function (options) {
     this.addAll();
-    this.listenTo(this.collection, 'change', this.reload);
   },
 
   reload: function(){
-    $('#listOfMovies').empty();
+    $('.moviesHere').empty();
     this.addAll();
   },
   addAll: function () {
@@ -49,17 +48,22 @@ module.exports = Backbone.View.extend({
       plot: $('.fplot').val() || "This is a movie about the world",
       rating: $('.stars').val() || 5
     };
+
+    console.log("saving: ", obj.title);
+
     var addMovie = new MovieModel(obj);
-    addMovie.save();
-    this.addOne(addMovie);
-    $('#overlay').addClass('hide');
-    $('.newMovie').trigger('reset');;
+    addMovie.save().then(function(){
+        $('.newMovie').trigger('reset');
+        window.location = "/#home";
+    });
+
+
   },
 
   movieSort: function(value){
    this.collection.comparator = value;
    this.collection.sort();
-   $('#listOfMovies').empty();
+   $('.moviesHere').empty();
    this.addAll();
  }
 });

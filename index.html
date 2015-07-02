@@ -30,19 +30,8 @@
         </div>
       </div>
     </div>
-      <div id='overlay' class='hide'>
-        <form class="newMovie">
-          <h3>What Movie Are We Adding? </h3>
-          <span>Movie Title:</span> <input type="text" class='ftitle' placeHolder="Movie Title?"/> <br>
-          <span>Release Year:</span> <input type="text" class='fyear'placeHolder="Release Year?"/><br>
-          <span>Plot:</span> <input type="text" class='fplot'placeHolder="Plot?"/><br>
-          <span>Image Link:</span> <input type="text" class='fimage'placeHolder="Image Link?"/><br>
-          <span>Rating:</span> <input type="text" class='stars' placeHolder="Rating?"/><br>
-          <button type="submit" class="submit">Submit</button>
-          <button type="button" class="cancel">Cancel</button>
-        </form>
-      </div>
   </script>
+
   <script type="text/template" id="buttonTmpl">
       <ul>
         <li><button type="button" class= "home">Home</button> </li>
@@ -56,6 +45,20 @@
       </ul>
 
       <img src="http://vapersbook.com/wp-content/uploads/2013/05/popcorn-eliquid-recipe.jpg"/>
+  </script>
+  <script type="text/template" id="formTmpl">
+    <div id='overlay' class='hide'>
+      <form class="newMovie">
+        <h3>What Movie Are We Adding? </h3>
+        <span>Movie Title:</span> <input type="text" class='ftitle' placeHolder="Movie Title?"/> <br>
+        <span>Release Year:</span> <input type="text" class='fyear'placeHolder="Release Year?"/><br>
+        <span>Plot:</span> <input type="text" class='fplot'placeHolder="Plot?"/><br>
+        <span>Image Link:</span> <input type="text" class='fimage'placeHolder="Image Link?"/><br>
+        <span>Rating:</span> <input type="text" class='stars' placeHolder="Rating?"/><br>
+        <button type="submit" class="submit">Submit</button>
+        <button type="button" class="cancel">Cancel</button>
+      </form>
+    </div>
   </script>
 </head>
 <body>

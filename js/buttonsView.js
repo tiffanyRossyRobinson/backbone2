@@ -29,8 +29,6 @@ module.exports = Backbone.View.extend({
 
   goHome: function(){
     window.location = "/#home";
-    $('#overlay').addClass('hide');
-    $('#listOfMovie').empty();
 
   },
   movieSort: function(e){
@@ -42,7 +40,7 @@ module.exports = Backbone.View.extend({
     var moviesCollection = new MoviesCollection();
     moviesCollection.fetch().then(function(){
     var newSort = new MovieCollectionView({collection: moviesCollection});
-      $('#listOfMovies').empty();
+      $('.moviesHere').empty();
       newSort.movieSort(find[0]);
     });
 

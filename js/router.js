@@ -7,19 +7,19 @@ var MovieCollectionView= require('./collectionView');
 var MovieModel = require('./models');
 var MovieView = require('./movieView');
 var ButtonsView = require('./buttonsView.js');
+var FormView = require('./formView.js');
 
 module.exports = Backbone.Router.extend({
   routes: {
     "": "home",
     "home": "home",
-    "teddybear": "cuteAlert",
     "movie/:id": "detailView",
     "addMovie": "addMovie",
     "sort": "sorted",
-    "*anything": "notFound"
+    "*anything": "notExist"
   },
-  notFound: function (stuff) {
-    $('body').html('Sorry, but this: ' + stuff + " is not found" );
+  notExist: function (stuff) {
+    $('body').html('Sorry, but this: ' + stuff + " does not exist!" );
   },
   detailView: function (id) {
     var movie = new MovieModel({_id: id});
@@ -32,22 +32,29 @@ module.exports = Backbone.Router.extend({
   home: function () {
     var moviesCollection = new MoviesCollection();
     moviesCollection.fetch().then(function(){
+      $('#overlay').addClass('hide');
       $('.moviesHere').removeClass('hide');
-      $('#listOfMovie').empty();
-    var moviesView = new MovieCollectionView({collection: moviesCollection});
+      $('.moviesHere').empty();
+      var moviesView = new MovieCollectionView({collection: moviesCollection});
     });
+
     var buttonView = new ButtonsView();
     var buttonData = buttonView.render().el;
     $('.buttons').append(buttonData);
+
+    var formView = new FormView();
+    var formData = formView.render().el;
+    $('#listOfMovies').append(formData);
+
   },
   addMovie: function(){
     $('#overlay').removeClass('hide');
-    $('#listOfMovie').empty();
     $('.moviesHere').addClass('hide');
+    $('.moviesHere').empty();
   },
   sorted: function(){
     $('.moviesHere').removeClass('hide');
-      $('#listOfMovie').empty();
+    $('.moviesHere').empty();
   }
 
 });
